@@ -1,27 +1,53 @@
-.PHONY: help ready install test lint format check clean
+SHELL := /bin/sh
+
+# Make uv available immediately after the standalone installer runs
+export PATH := $(HOME)/.local/bin:$(HOME)/.cargo/bin:$(PATH)
+
+UV_INSTALL_URL ?= https://astral.sh/uv/install.sh
+
+.PHONY: help bootstrap ready install test lint format check clean
 
 help:
 	@echo "Available targets:"
-	@echo "  ready    Verify the interview environment is ready"
-	@echo "  install  Sync dependencies from uv.lock"
-	@echo "  test     Run tests"
-	@echo "  lint     Run Ruff checks"
-	@echo "  format   Format code with Ruff"
-	@echo "  check    Run lint and tests"
-	@echo "  clean    Remove local cache files"
+	@echo "  bootstrap	Install or upgrade pip and uv"
+	@echo "  ready		Sync dependencies and verify the environment"
+	@echo "  install	Sync dependencies from uv.lock"
+	@echo "  test		Run tests"
+	@echo "  lint		Run Ruff checks"
+	@echo "  format		Format code with Ruff"
+	@echo "  check		Run lint and tests"
+	@echo "  clean		Remove local cache files"
+
+bootstrap:
+	@if command -v uv >/dev/null 2>&1; then \
+		uv --version; \
+	else \
+		echo "uv not found; installing uv with the official standalone installer."; \
+		if command -v curl >/dev/null 2>&1; then \
+			curl -LsSf "$(UV_INSTALL_URL)" | sh; \
+		elif command -v wget >/dev/null 2>&1; then \
+			wget -qO- "$(UV_INSTALL_URL)" | sh; \
+		else \
+			echo "Neither curl nor wget is installed."; \
+			echo "Install uv manually, then rerun: make ready"; \
+			exit 1; \
+		fi; \
+		uv --version; \
+	fi
 
 ready: install test
+	@echo "Environment is ready."
 
-install:
+install: bootstrap
 	uv sync --locked
 
-test:
+test: bootstrap
 	uv run pytest -q
 
-lint:
+lint: bootstrap
 	uv run ruff check .
 
-format:
+format: bootstrap
 	uv run ruff format .
 	uv run ruff check --fix .
 
