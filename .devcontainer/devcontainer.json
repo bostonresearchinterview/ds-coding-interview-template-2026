@@ -1,0 +1,34 @@
+{
+    "name": "DS Coding Interview Template 2026",
+    "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+    "containerEnv": {
+        "UV_LINK_MODE": "copy"
+    },
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md",
+                "notebooks/workspace.ipynb",
+                "src/interview/solution.py"
+            ]
+        },
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "python.analysis.typeCheckingMode": "basic",
+                "editor.formatOnSave": true,
+                "ruff.nativeServer": "on"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "charliermarsh.ruff"
+            ]
+        }
+    },
+    "postCreateCommand": "python -m pip install --upgrade pip uv && uv sync --locked",
+    "remoteUser": "vscode"
+}
