@@ -15,7 +15,7 @@ Before the interview, make sure you have:
 * Access to a GitHub account
 * Access to GitHub Codespaces
 
-<u>*or*</u> **Option 2:**
+*or* **Option 2:**
 
 * Linux, MacOS, or Windows with WSL
 * `curl` or `wget` available
@@ -64,8 +64,8 @@ The environment is ready if the command passes.
 
 Use these locations during the interview:
 
-* `notebooks/workspace.ipynb` for the main notebook with instructions
-* `src/interview/solution.py` for Python module code
+* `notebooks/exercise.ipynb` for the main notebook with instructions
+* `src/interview/candidate_code.py` for Python module code
 * `tests/` for tests
 * `data/` for provided data
 

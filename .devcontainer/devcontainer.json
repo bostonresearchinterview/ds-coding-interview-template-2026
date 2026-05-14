@@ -8,8 +8,8 @@
         "codespaces": {
             "openFiles": [
                 "README.md",
-                "notebooks/workspace.ipynb",
-                "src/interview/solution.py"
+                "notebooks/exercise.ipynb",
+                "src/interview/candidate_code.py"
             ]
         },
         "vscode": {

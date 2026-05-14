@@ -1,4 +1,4 @@
-"""Data science coding interview workspace package."""
+"""Data science coding interview tooling package."""
 
 from __future__ import annotations
 

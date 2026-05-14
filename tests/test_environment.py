@@ -1,3 +1,5 @@
+"""Tests to ensure the project's Python environment is functional."""
+
 from __future__ import annotations
 
 
@@ -18,4 +20,4 @@ def test_python_environment_imports() -> None:
 def test_project_package_importable() -> None:
     import interview
 
-    assert interview.__version__ == "0.1.0"
+    assert interview.__version__

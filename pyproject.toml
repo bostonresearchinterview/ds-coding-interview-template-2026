@@ -1,7 +1,7 @@
 [project]
 name = "ds-coding-interview-template-2026"
 version = "0.1.0"
-description = "Template repository for live data science coding interview."
+description = "Template repository for data science coding interview."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [

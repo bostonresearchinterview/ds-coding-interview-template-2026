@@ -1,3 +1,3 @@
 # Data
 
-This directory is for toy datasets used during the interview.
+This directory is for datasets used during the interview.
