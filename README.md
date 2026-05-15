@@ -26,7 +26,7 @@ At the start of the interview:
 
 1. Sign in to GitHub.
 2. Open the [template repository](https://github.com/bostonresearchinterview/ds-coding-interview-template-2026).
-3. Click **Use this template** > **Create a new repository**.
+3. Click **Use this template** → **Create a new repository**.
 4. Choose any repository name and select **Private** visibility.
 5. Click **Code** → **Codespaces** → **Create codespace on main**.
 6. Open a terminal and run:
